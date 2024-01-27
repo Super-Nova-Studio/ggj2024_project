@@ -4,15 +4,52 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject[] playerPose;
+    [SerializeField] int currentPoseIndex = 0;
+
+    private void Start()
     {
-        
+        // Ensure that at least one player mpose is assigned
+        if (playerPose.Length > 0)
+        {
+            // Activate the initial player model
+            SwitchPlayerModel(currentPoseIndex);
+        }
+        else
+        {
+            Debug.LogError("No player pose assigned!");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        // Example: Switch player model when the space key is pressed
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            // Increment index to switch to the next player model
+            currentPoseIndex = 0;
+
+            // Switch to the new player model
+            SwitchPlayerModel(currentPoseIndex);
+        }
+
+        // Example: Switch player model when the space key is pressed
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            // Increment index to switch to the next player model
+            currentPoseIndex = 1;
+
+            // Switch to the new player model
+            SwitchPlayerModel(currentPoseIndex);
+        }
+    }
+
+    private void SwitchPlayerModel(int newIndex)
+    {
+        // Deactivate current player model
+        for (int i = 0; i < playerPose.Length; i++)
+        {
+            playerPose[i].SetActive(i == newIndex);
+        }
     }
 }
