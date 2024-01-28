@@ -23,15 +23,23 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+
+        if (!GameManager.Instance.IsGameOver()){
+
         // Example: Switch player model when the space key is pressed
         if (Input.GetKeyDown(KeyCode.Q))
-        {
-            // Increment index to switch to the next player model
-            currentPoseIndex = 0;
 
-            // Switch to the new player model
-            SwitchPlayerModel(currentPoseIndex);
-        }
+        {
+            // Example: Switch player model when the space key is pressed
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                // Increment index to switch to the next player model
+                currentPoseIndex = 0;
+
+                // Switch to the new player model
+                SwitchPlayerModel(currentPoseIndex);
+            }
+
 
         // Example: Switch player model when the space key is pressed
         if (Input.GetKeyDown(KeyCode.A))
@@ -39,8 +47,9 @@ public class Player : MonoBehaviour
             // Increment index to switch to the next player model
             currentPoseIndex = 1;
 
-            // Switch to the new player model
-            SwitchPlayerModel(currentPoseIndex);
+                // Switch to the new player model
+                SwitchPlayerModel(currentPoseIndex);
+            }
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -83,5 +92,14 @@ public class Player : MonoBehaviour
         {
             playerPose[i].SetActive(i == newIndex);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            GameManager.Instance.SetGameOver();
+        }
+    }
     }
 }
