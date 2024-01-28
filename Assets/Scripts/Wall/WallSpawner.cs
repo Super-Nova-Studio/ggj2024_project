@@ -5,7 +5,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class WallSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] wallPrefabs;
+    [SerializeField] private GameObject wall;
     [SerializeField] private float spawnInterval;
 
 
@@ -16,8 +16,6 @@ public class WallSpawner : MonoBehaviour
 
     private void SpawnWall()
     {
-        GameObject WallPrefab = wallPrefabs[Random.Range(0, wallPrefabs.Length)]; 
-
-        Instantiate(WallPrefab, transform.position, Quaternion.identity, this.transform);
+        Instantiate(wall, transform.position, Quaternion.identity, this.transform);
     }
 }
