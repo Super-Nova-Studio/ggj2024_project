@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // Example: Switch player model when the space key is pressed
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             // Increment index to switch to the next player model
             currentPoseIndex = 0;
@@ -34,10 +34,42 @@ public class Player : MonoBehaviour
         }
 
         // Example: Switch player model when the space key is pressed
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             // Increment index to switch to the next player model
             currentPoseIndex = 1;
+
+            // Switch to the new player model
+            SwitchPlayerModel(currentPoseIndex);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            // Increment index to switch to the next player model
+            currentPoseIndex = 2;
+
+            // Switch to the new player model
+            SwitchPlayerModel(currentPoseIndex);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            // Increment index to switch to the next player model
+            currentPoseIndex = 3;
+
+            // Switch to the new player model
+            SwitchPlayerModel(currentPoseIndex);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            // Increment index to switch to the next player model
+            currentPoseIndex = 4;
+
+            // Switch to the new player model
+            SwitchPlayerModel(currentPoseIndex);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Increment index to switch to the next player model
+            currentPoseIndex = 5;
 
             // Switch to the new player model
             SwitchPlayerModel(currentPoseIndex);
