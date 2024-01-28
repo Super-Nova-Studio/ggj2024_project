@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 852557773}
 --- !u!4 &1503644460
 Transform:
   m_ObjectHideFlags: 0
