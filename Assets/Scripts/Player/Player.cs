@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
         if (playerPose.Length > 0)
         {
             // Activate the initial player model
-            SwitchPlayerModel(currentPoseIndex);
+            SwitchPlayerPose(currentPoseIndex);
         }
         else
         {
@@ -24,68 +24,68 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
-        if (!GameManager.Instance.IsGameOver()){
-
-        // Example: Switch player model when the space key is pressed
-        if (Input.GetKeyDown(KeyCode.Q))
-
+        if (!GameManager.Instance.IsGameOver())
         {
-            // Example: Switch player model when the space key is pressed
-            if (Input.GetKeyDown(KeyCode.W))
+            // Example: Switch player model when the q key is pressed
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                // Increment index to switch to the next player model
                 currentPoseIndex = 0;
 
                 // Switch to the new player model
-                SwitchPlayerModel(currentPoseIndex);
+                SwitchPlayerPose(currentPoseIndex);
             }
 
-
-        // Example: Switch player model when the space key is pressed
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            // Increment index to switch to the next player model
-            currentPoseIndex = 1;
+            // Example: Switch player model when the w key is pressed
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                currentPoseIndex = 1;
 
                 // Switch to the new player model
-                SwitchPlayerModel(currentPoseIndex);
+                SwitchPlayerPose(currentPoseIndex);
             }
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            // Increment index to switch to the next player model
-            currentPoseIndex = 2;
 
-            // Switch to the new player model
-            SwitchPlayerModel(currentPoseIndex);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            // Increment index to switch to the next player model
-            currentPoseIndex = 3;
+            // Example: Switch player model when the a key is pressed
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                currentPoseIndex = 2;
 
-            // Switch to the new player model
-            SwitchPlayerModel(currentPoseIndex);
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            // Increment index to switch to the next player model
-            currentPoseIndex = 4;
+                // Switch to the new player model
+                SwitchPlayerPose(currentPoseIndex);
+            }
 
-            // Switch to the new player model
-            SwitchPlayerModel(currentPoseIndex);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // Increment index to switch to the next player model
-            currentPoseIndex = 5;
+            // Example: Switch player model when the d key is pressed
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                currentPoseIndex = 3;
 
-            // Switch to the new player model
-            SwitchPlayerModel(currentPoseIndex);
+                // Switch to the new player model
+                SwitchPlayerPose(currentPoseIndex);
+
+            }
+
+            // Example: Switch player model when the s key is pressed
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                currentPoseIndex = 4;
+
+                // Switch to the new player model
+                SwitchPlayerPose(currentPoseIndex);
+            }
+
+
+            // Example: Switch player model when the e key is pressed
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+
+                currentPoseIndex = 5;
+
+                // Switch to the new player model
+                SwitchPlayerPose(currentPoseIndex);
+            }
         }
     }
 
-    private void SwitchPlayerModel(int newIndex)
+    private void SwitchPlayerPose(int newIndex)
     {
         // Deactivate current player model
         for (int i = 0; i < playerPose.Length; i++)
@@ -101,5 +101,5 @@ public class Player : MonoBehaviour
             GameManager.Instance.SetGameOver();
         }
     }
-    }
+    
 }
